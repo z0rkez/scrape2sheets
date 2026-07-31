@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# секреты — в репозиторий не попадают
+service_account.json
+*.credentials.json
+.env
+config.yaml
+
+# выгрузки
+*.csv
+!demo_output.csv

@@ -1,0 +1,38 @@
+# Селекторы задаются здесь — под новый сайт код менять не нужно.
+
+sites:
+  - name: books
+    start_url: "https://books.toscrape.com/catalogue/page-1.html"
+    item_selector: "article.product_pod"
+    fields:
+      title: "h3 a"
+      price: "p.price_color"
+      availability: "p.instock.availability"
+      url: "h3 a"
+    attrs:
+      title: title       # берём атрибут title, а не обрезанный текст
+      url: href          # href разворачивается в абсолютный
+    next_selector: "li.next a"
+    max_pages: 3
+    delay: 1.0
+
+columns: [_source, title, price, availability, url]
+dedup_key: url
+
+# proxy: "http://user:pass@host:port"
+
+enrich:
+  enabled: false
+  batch_size: 25
+  instruction: |
+    Для каждого объекта верни поля:
+      price_num  — цена числом без валюты,
+      genre      — жанр книги одним словом по названию,
+      in_stock   — true/false по полю availability.
+
+google_sheets:
+  credentials: "service_account.json"
+  spreadsheet_id: "ВСТАВЬ_ID_ИЗ_URL_ТАБЛИЦЫ"
+  worksheet: "data"
+  batch_size: 500
+  mode: replace          # replace | append
