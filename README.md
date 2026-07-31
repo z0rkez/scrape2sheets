@@ -1,5 +1,11 @@
 # scrape2sheets
 
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
+![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-34A853?style=flat&logo=googlesheets&logoColor=white)
+![gspread](https://img.shields.io/badge/gspread-0F9D58?style=flat)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
 Пайплайн: **парсинг сайтов → нормализация → автозапись в Google Sheets через API.**
 
 Селекторы и настройки живут в YAML — под новый сайт код менять не нужно.
